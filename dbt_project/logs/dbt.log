@@ -1,0 +1,37 @@
+[0m20:50:47.263253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73f1cee57650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73f1cd07e900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73f1cd07cfe0>]}
+
+
+============================== 20:50:47.311306 | f1634cec-26af-49dd-ad2b-3459657eae3d ==============================
+[0m20:50:47.311306 [info ] [MainThread]: Running with dbt=1.11.7
+[0m20:50:47.313475 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'log_path': 'logs', 'no_print': 'None', 'use_colors': 'True', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'invocation_command': 'dbt init housing_transforms', 'write_json': 'True', 'version_check': 'True', 'static_parser': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'printer_width': '80', 'profiles_dir': '/home/rohit/.dbt', 'warn_error': 'None', 'log_format': 'default', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'debug': 'False'}
+[0m20:50:48.344646 [info ] [MainThread]: Creating dbt configuration folder at /home/rohit/.dbt
+[0m20:50:48.440534 [debug] [MainThread]: Starter project path: /mnt/c/Users/Rohit/OneDrive/Desktop/elt-pipeline/venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m20:50:48.512951 [info ] [MainThread]: 
+Your new dbt project "housing_transforms" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:50:48.514889 [info ] [MainThread]: Setting up your profile.
+[0m20:55:29.259959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c1593038f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c15707a000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c156fe64e0>]}
+
+
+============================== 20:55:29.301711 | a7d04dff-3e1e-4954-a154-812aaf349c4d ==============================
+[0m20:55:29.301711 [info ] [MainThread]: Running with dbt=1.11.7
+[0m20:55:29.308251 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'empty': 'None', 'log_path': 'logs', 'introspect': 'True', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'static_parser': 'True', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'log_cache_events': 'False', 'warn_error': 'None', 'printer_width': '80', 'debug': 'False', 'profiles_dir': '/home/rohit/.dbt', 'fail_fast': 'False', 'invocation_command': 'dbt init housing_transforms', 'quiet': 'False', 'indirect_selection': 'eager', 'write_json': 'True', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m20:55:29.996641 [info ] [MainThread]: A project called housing_transforms already exists here.
+[0m20:55:30.002652 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.855501, "process_in_blocks": "19240", "process_kernel_time": 1.655706, "process_mem_max_rss": "101572", "process_out_blocks": "0", "process_user_time": 3.071567}
+[0m20:55:30.004810 [debug] [MainThread]: Command `dbt init` succeeded at 20:55:30.004648 after 0.86 seconds
+[0m20:55:30.006724 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c15649fdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c15821bf80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74c156fe4d70>]}
+[0m20:55:30.009128 [debug] [MainThread]: Flushing usage events
+[0m20:55:30.940128 [debug] [MainThread]: An error was encountered while trying to flush usage events

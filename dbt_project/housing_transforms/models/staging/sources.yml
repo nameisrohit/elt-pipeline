@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: housing_raw
+    database: elt-pipeline-490819
+    schema: housing_raw
+    tables:
+      - name: dwelling_completions
+        description: "Raw CSO dwelling completions data (NDQ07)"
