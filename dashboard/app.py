@@ -28,7 +28,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
@@ -37,104 +36,142 @@ st.markdown("""
         font-family: 'DM Sans', sans-serif;
     }
 
-    .main-header {
-        background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
-        padding: 2.5rem 2rem;
-        border-radius: 16px;
+    .hero {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        padding: 2.5rem 2.5rem;
+        border-radius: 20px;
         margin-bottom: 2rem;
-        color: white;
+        border: 1px solid rgba(255,255,255,0.08);
     }
-    .main-header h1 {
-        font-size: 2.2rem;
+    .hero h1 {
+        font-size: 2.4rem;
         font-weight: 700;
         margin: 0;
-        letter-spacing: -0.5px;
+        color: #ffffff;
+        letter-spacing: -1px;
     }
-    .main-header p {
-        font-size: 0.95rem;
-        opacity: 0.85;
-        margin: 0.5rem 0 0 0;
+    .hero .subtitle {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.6);
+        margin: 0.5rem 0 1rem 0;
     }
-    .main-header .pipeline-tag {
-        display: inline-block;
-        background: rgba(255,255,255,0.15);
-        padding: 4px 12px;
-        border-radius: 20px;
+    .hero .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .hero .tag {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: 5px 14px;
+        border-radius: 100px;
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 1.5px;
+        font-weight: 500;
+    }
+
+    .metric-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 2rem;
+    }
+    .metric-box {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .metric-box .number {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #4fc3f7;
+        line-height: 1;
+    }
+    .metric-box .number.green { color: #66bb6a; }
+    .metric-box .number.orange { color: #ffa726; }
+    .metric-box .number.pink { color: #ef5350; }
+    .metric-box .desc {
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.4);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-top: 8px;
+    }
+
+    .section-head {
         font-size: 0.75rem;
-        margin-top: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(255,255,255,0.35);
+        margin: 2.5rem 0 1rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-bar {
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.3);
+    }
+    .footer-bar a {
+        color: #4fc3f7;
+        text-decoration: none;
+    }
+    .footer-bar .pipe-viz {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+    }
+    .footer-bar .pipe-step {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-size: 0.65rem;
         letter-spacing: 0.5px;
     }
-
-    .metric-card {
-        background: white;
-        border: 1px solid #e8e8e8;
-        border-radius: 12px;
-        padding: 1.2rem 1.5rem;
-        text-align: center;
-    }
-    .metric-card .value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1B4332;
-    }
-    .metric-card .label {
-        font-size: 0.8rem;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-top: 4px;
-    }
-
-    .section-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #1B4332;
-        margin: 2rem 0 1rem 0;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #40916C;
-        display: inline-block;
-    }
-
-    .footer {
-        text-align: center;
-        color: #adb5bd;
-        font-size: 0.75rem;
-        padding: 2rem 0 1rem 0;
-        border-top: 1px solid #e8e8e8;
-        margin-top: 3rem;
-    }
-    .footer a {
-        color: #40916C;
-        text-decoration: none;
+    .footer-bar .pipe-arrow {
+        color: rgba(255,255,255,0.15);
+        font-size: 0.7rem;
     }
 
     [data-testid="stSidebar"] {
-        background: #f8faf9;
-    }
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1 {
-        color: #1B4332;
-        font-size: 1.3rem;
+        background: #0a1a20;
+        border-right: 1px solid rgba(255,255,255,0.06);
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Header
+# Hero
 st.markdown("""
-<div class="main-header">
+<div class="hero">
     <h1>🏠 Irish Housing Completions</h1>
-    <p>Tracking new dwelling completions across Ireland, powered by CSO open data</p>
-    <span class="pipeline-tag">PYTHON → GCS → BIGQUERY → DBT → STREAMLIT</span>
+    <p class="subtitle">Tracking new dwelling completions across Ireland using CSO open data</p>
+    <div class="tags">
+        <span class="tag">REAL-TIME DATA</span>
+        <span class="tag">170+ AREAS</span>
+        <span class="tag">2012 — 2025</span>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
 df = load_data()
 
 # Sidebar
-st.sidebar.markdown("# 🇮🇪 Filters")
-st.sidebar.markdown("---")
+st.sidebar.markdown("## 🇮🇪 Filters")
 
 areas = st.sidebar.multiselect(
-    "Select areas",
+    "Areas",
     options=sorted(df["area"].unique()),
     default=sorted(df["area"].unique())[:5]
 )
@@ -146,10 +183,7 @@ years = st.sidebar.slider(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(
-    f"**{len(df['area'].unique())}** areas available  \n"
-    f"**{int(df['year'].min())}–{int(df['year'].max())}** data range"
-)
+st.sidebar.caption(f"{len(df['area'].unique())} areas · {int(df['year'].min())}–{int(df['year'].max())} data range")
 
 filtered = df[
     (df["area"].isin(areas)) &
@@ -161,40 +195,35 @@ total = filtered["total_completions"].sum()
 total_national = df[df["year"].between(years[0], years[1])]["total_completions"].sum()
 pct = (total / total_national * 100) if total_national > 0 else 0
 
-latest_year = filtered[filtered["year"] == filtered["year"].max()]["total_completions"].sum()
-prev_year = filtered[filtered["year"] == (filtered["year"].max() - 1)]["total_completions"].sum()
-growth = ((latest_year - prev_year) / prev_year * 100) if prev_year > 0 else 0
+latest_year_data = filtered[filtered["year"] == filtered["year"].max()]["total_completions"].sum()
+prev_year_data = filtered[filtered["year"] == (filtered["year"].max() - 1)]["total_completions"].sum()
+growth = ((latest_year_data - prev_year_data) / prev_year_data * 100) if prev_year_data > 0 else 0
+arrow = "↑" if growth >= 0 else "↓"
+growth_class = "green" if growth >= 0 else "pink"
 
-c1, c2, c3, c4 = st.columns(4)
-with c1:
-    st.markdown(f"""
-    <div class="metric-card">
-        <div class="value">{total:,.0f}</div>
-        <div class="label">Total completions</div>
-    </div>""", unsafe_allow_html=True)
-with c2:
-    st.markdown(f"""
-    <div class="metric-card">
-        <div class="value">{len(areas)}</div>
-        <div class="label">Areas selected</div>
-    </div>""", unsafe_allow_html=True)
-with c3:
-    st.markdown(f"""
-    <div class="metric-card">
-        <div class="value">{pct:.1f}%</div>
-        <div class="label">Share of national</div>
-    </div>""", unsafe_allow_html=True)
-with c4:
-    arrow = "↑" if growth >= 0 else "↓"
-    color = "#2D6A4F" if growth >= 0 else "#c0392b"
-    st.markdown(f"""
-    <div class="metric-card">
-        <div class="value" style="color:{color}">{arrow} {abs(growth):.1f}%</div>
-        <div class="label">YoY growth</div>
-    </div>""", unsafe_allow_html=True)
+st.markdown(f"""
+<div class="metric-row">
+    <div class="metric-box">
+        <div class="number">{total:,.0f}</div>
+        <div class="desc">Total completions</div>
+    </div>
+    <div class="metric-box">
+        <div class="number green">{len(areas)}</div>
+        <div class="desc">Areas selected</div>
+    </div>
+    <div class="metric-box">
+        <div class="number orange">{pct:.1f}%</div>
+        <div class="desc">Share of national</div>
+    </div>
+    <div class="metric-box">
+        <div class="number {growth_class}">{arrow} {abs(growth):.1f}%</div>
+        <div class="desc">Year-over-year growth</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
-# Charts
-st.markdown('<div class="section-title">Completions over time</div>', unsafe_allow_html=True)
+# Line chart
+st.markdown('<div class="section-head">Completions over time</div>', unsafe_allow_html=True)
 chart_data = filtered.copy()
 chart_data["area"] = chart_data["area"].str.replace(":", "-")
 time_series = (
@@ -206,10 +235,11 @@ time_series = (
 )
 st.line_chart(time_series)
 
+# Two column charts
 left, right = st.columns(2)
 
 with left:
-    st.markdown('<div class="section-title">Top 10 areas</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-head">Top 10 areas</div>', unsafe_allow_html=True)
     by_area = (
         filtered.groupby("area")["total_completions"]
         .sum()
@@ -219,7 +249,7 @@ with left:
     st.bar_chart(by_area)
 
 with right:
-    st.markdown('<div class="section-title">Yearly trend</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-head">Yearly trend</div>', unsafe_allow_html=True)
     by_year = (
         filtered.groupby("year")["total_completions"]
         .sum()
@@ -228,15 +258,23 @@ with right:
     )
     st.bar_chart(by_year)
 
-with st.expander("📋 View raw data"):
+# Raw data
+with st.expander("View raw data"):
     st.dataframe(filtered, width="stretch")
 
 # Footer
 st.markdown("""
-<div class="footer">
-    Built by <strong>Rohit Yadav</strong> &nbsp;|&nbsp;
-    <a href="https://github.com/nameisrohit/elt-pipeline" target="_blank">GitHub Repo</a> &nbsp;|&nbsp;
-    Data: Central Statistics Office, Ireland &nbsp;|&nbsp;
-    Pipeline: Python → GCS → BigQuery → dbt → Streamlit → Airflow
+<div class="footer-bar">
+    <div class="pipe-viz">
+        <span class="pipe-step">Python</span><span class="pipe-arrow">→</span>
+        <span class="pipe-step">GCS</span><span class="pipe-arrow">→</span>
+        <span class="pipe-step">BigQuery</span><span class="pipe-arrow">→</span>
+        <span class="pipe-step">dbt</span><span class="pipe-arrow">→</span>
+        <span class="pipe-step">Streamlit</span><span class="pipe-arrow">→</span>
+        <span class="pipe-step">Airflow</span>
+    </div>
+    Built by <strong>Rohit Yadav</strong> &nbsp;·&nbsp;
+    <a href="https://github.com/nameisrohit/elt-pipeline" target="_blank">Source Code</a> &nbsp;·&nbsp;
+    Data: Central Statistics Office, Ireland
 </div>
 """, unsafe_allow_html=True)
