@@ -1,13 +1,16 @@
-
 import streamlit as st
 from google.cloud import bigquery
+from google.oauth2 import service_account
 import pandas as pd
 
 BQ_PROJECT = "elt-pipeline-490819"
 
 @st.cache_data(ttl=3600)
 def load_data():
-    client = bigquery.Client(project=BQ_PROJECT)
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
+    )
+    client = bigquery.Client(project=BQ_PROJECT, credentials=credentials)
     query = """
         SELECT area, quarter_label, total_completions, year
         FROM `elt-pipeline-490819.housing_transformed.housing_summary`
@@ -66,4 +69,4 @@ by_area = (
 st.bar_chart(by_area)
 
 with st.expander("View Raw Data"):
-    st.dataframe(filtered, use_container_width=True)
+    st.dataframe(filtered, width="stretch")
